@@ -14,7 +14,7 @@ namespace api.Data
         public ApplicationDBContext(DbContextOptions dbContextOptions)
         : base(dbContextOptions)
         {
-            
+
         }
 
         public DbSet<Stock> Stocks { get; set; }
@@ -25,7 +25,7 @@ namespace api.Data
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<Portfolio>(x => x.HasKey(p => new { p.AppUserId, p.StockId}));
+            builder.Entity<Portfolio>(x => x.HasKey(p => new { p.AppUserId, p.StockId }));
 
             builder.Entity<Portfolio>()
                 .HasOne(u => u.AppUser)
